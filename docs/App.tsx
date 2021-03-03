@@ -1,12 +1,12 @@
 import React from 'react';
 
 import {
-    Wrap,
-    Header,
-    Footer,
-    Side,
-    Main,
-    Aside,
+    WrapLayout,
+    HeaderLayout,
+    FooterLayout,
+    SideLayout,
+    MainLayout,
+    AsideLayout,
 } from '../src'
 
 const randomStyle = () => {
@@ -16,22 +16,22 @@ const randomStyle = () => {
 
 function App() {
     return (
-        <Wrap>
-            <Header {...randomStyle()}>
-                    header
-            </Header>
-            <Side {...randomStyle()}>
-                <Aside {...randomStyle()}>
-                        aside
-                </Aside>
-                <Main {...randomStyle()}>
+        <WrapLayout>
+            <HeaderLayout {...randomStyle()}>
+                header
+            </HeaderLayout>
+            <SideLayout {...randomStyle()}>
+                <AsideLayout {...randomStyle()}>
+                    aside
+                </AsideLayout>
+                <MainLayout {...randomStyle()}>
                     main
-                </Main>
-            </Side>
-            <Footer {...randomStyle()}>
-                    footer
-            </Footer>
-        </Wrap>
+                </MainLayout>
+            </SideLayout>
+            <FooterLayout {...randomStyle()}>
+                footer
+            </FooterLayout>
+        </WrapLayout>
     )
 }
 

@@ -1,21 +1,25 @@
 import { atom } from "jotai";
 
-export type Light = {
+export type LightAtom = {
     x: number,
     y: number,
     color: string,
     intensity: number,
 }
 
-export type Shadow = {
-    size: number,
-    radius: number;
-    distance: number,
-    intensity: number,
-    blur: number;
-    color: string;
-    shape: string;
+export type ShadowAtom = {
+    blur: number
+    size: number
+    shape: number
+    radius: number
+    distance: number
+    intensity: number
+    colorDifference: number
+    maxSize: number
+    maxRadius: number
+    gradient: boolean
+    color: string
 }
 
-export const lightAtom = atom<Light[]>([])
-export const shadowAtom = atom<Shadow[]>([])
+export const lightAtom = atom<LightAtom[]>([])
+export const shadowAtom = atom<ShadowAtom[]>([])

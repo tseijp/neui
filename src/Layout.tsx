@@ -1,6 +1,26 @@
 import styled from 'styled-components'
+import {Shadow} from './components'
+import {UseShadowProps} from './hooks'
 
-export const Wrap = styled.div`
+export const WrapShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <WrapLayout {...props} style={style}/>}</Shadow>
+
+export const HeaderShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <HeaderLayout {...props} style={style}/>}</Shadow>
+
+export const FooterShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <FooterLayout {...props} style={style}/>}</Shadow>
+
+export const SideShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <SideLayout {...props} style={style}/>}</Shadow>
+
+export const AsideShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <AsideLayout {...props} style={style}/>}</Shadow>
+
+export const MainShadow = (props: UseShadowProps) =>
+    <Shadow>{style => <MainLayout {...props} style={style}/>}</Shadow>
+
+export const WrapLayout = styled.div`
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -10,40 +30,42 @@ export const Wrap = styled.div`
     height: 100%;
 `;
 
-export const Side = styled.div`
-    dislay: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    > aside {
-        width: 30%;
-    }
-    > main {
-        flex: 1;
-    }
-`;
-
-export const Header = styled.header`
+export const HeaderLayout = styled.header`
     /* Stick to the top */
-    position: sticky;
     top: 0;
     width: 100%;
     height: 100%;
 `;
 
-export const Footer = styled.footer`
+export const FooterLayout = styled.footer`
     flex-shrink: 0;
     width: 100%;
     height: 100%;
 `;
 
-export const Main = styled.main`
+export const SideLayout = styled.div`
+    dislay: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    @media (max-width: 899px) {
+        flex-direction: column;
+    }
     width: 100%;
     height: 100%;
 `;
-export const Aside = styled.aside`
-    width: 100%;
-    height: 100%;
+
+export const AsideLayout = styled.aside`
+    padding: 20px;
+    width: 300px;
+`;
+
+export const MainLayout = styled.aside`
+    width: 60vw;
+    padding: 0px 40px;
+    @media (max-width: 899px) {
+        width: 100vw;
+        padding: 0 12px;
+    }
 `;
 
 export const Sections = styled.div`
