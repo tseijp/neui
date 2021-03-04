@@ -1,26 +1,7 @@
 import styled from 'styled-components'
-import {Shadow} from './components'
-import {UseShadowProps} from './hooks'
+import {shadow} from './components'
 
-export const WrapShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <WrapLayout {...props} style={style}/>}</Shadow>
-
-export const HeaderShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <HeaderLayout {...props} style={style}/>}</Shadow>
-
-export const FooterShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <FooterLayout {...props} style={style}/>}</Shadow>
-
-export const SideShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <SideLayout {...props} style={style}/>}</Shadow>
-
-export const AsideShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <AsideLayout {...props} style={style}/>}</Shadow>
-
-export const MainShadow = (props: UseShadowProps) =>
-    <Shadow>{style => <MainLayout {...props} style={style}/>}</Shadow>
-
-export const WrapLayout = styled.div`
+export const Wrap = shadow(styled.div`
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -28,22 +9,22 @@ export const WrapLayout = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-`;
+`);
 
-export const HeaderLayout = styled.header`
+export const Header = shadow(styled.header`
     /* Stick to the top */
     top: 0;
     width: 100%;
     height: 100%;
-`;
+`);
 
-export const FooterLayout = styled.footer`
+export const Footer = shadow(styled.footer`
     flex-shrink: 0;
     width: 100%;
     height: 100%;
-`;
+`);
 
-export const SideLayout = styled.div`
+export const Side = shadow(styled.div`
     dislay: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -52,21 +33,21 @@ export const SideLayout = styled.div`
     }
     width: 100%;
     height: 100%;
-`;
+`);
 
-export const AsideLayout = styled.aside`
+export const Aside = shadow(styled.aside`
     padding: 20px;
     width: 300px;
-`;
+`);
 
-export const MainLayout = styled.aside`
+export const Main = shadow(styled.aside`
     width: 60vw;
     padding: 0px 40px;
     @media (max-width: 899px) {
         width: 100vw;
         padding: 0 12px;
     }
-`;
+`);
 
 export const Sections = styled.div`
     height: 100%;
@@ -83,7 +64,7 @@ export const Sections = styled.div`
 `;
 
 
-export const CardLayout = styled.div`
+export const Card = styled.div`
     display: flex;
 
     /* Put a card in the next row when previous cards take all width */
@@ -109,7 +90,7 @@ export const Columns = styled.div`
         /* Space between columns */
         margin: 0 8px;
 
-        /* Layout each column */
+        /*  each column */
         display: flex;
         flex-direction: column;
 

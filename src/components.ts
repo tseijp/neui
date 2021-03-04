@@ -1,4 +1,4 @@
-import {CSSProperties as CSS} from "react"
+import React, {createElement, CSSProperties as CSS} from "react"
 import {
     useLight,
     UseLightProps,
@@ -20,4 +20,19 @@ export function Shadow (props: Partial<UseShadowProps> & {
 
 export function Shadow ({children, ...props}: any) {
     return children(useShadow(props))
+}
+
+export function shadow (
+    element: React.ReactElement | React.JSXElementConstructor<any>,
+    props?: UseShadowProps
+): any
+
+export function shadow (element: any, config: any) {
+    return (props: any) => {
+        const children = React.useCallback((state: CSS) => {
+            const style = {...state, ...props.style}
+            return createElement(element, {...props, style})
+        }, [props])
+        return createElement(Shadow, config, children)
+    }
 }
