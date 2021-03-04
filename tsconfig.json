@@ -27,7 +27,7 @@
         "noFallthroughCasesInSwitch": true
         },
         "include": [
-            "./page",
+            "./docs",
             "./src"
         ],
         "exclude": [

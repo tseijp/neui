@@ -28,8 +28,8 @@
     "peerDependencies": {
         "react": ">=16.8",
         "react-dom": ">=16.8",
-        "react-three-fiber": "*",
-        "three": ">=0.125.0"
+        "react-spring": ">=9.0",
+        "styled-components": ">=5.0"
     },
     "dependencies": {},
     "devDependencies": {

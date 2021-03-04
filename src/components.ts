@@ -25,7 +25,7 @@ export function Shadow ({children, ...props}: any) {
 export function shadow (
     element: React.ReactElement | React.JSXElementConstructor<any>,
     props?: UseShadowProps
-): any
+): (props?: any) => null | JSX.Element
 
 export function shadow (element: any, config: any) {
     return (props: any) => {
