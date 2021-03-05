@@ -1,6 +1,8 @@
 import React from "react";
 import { PagesProps } from "./types";
 import { Page, Code } from '../components'
+
+export * from "./CommonAPI"
 export * from "./Inputs"
 export * from "./Layout"
 
@@ -52,21 +54,6 @@ export function BasicUsage (_: PagesProps) {
                 // styled-components, emotion, etc.
                 const AnimatedHeader = styled(animated.h1)\`\`
                 `}</Code>
-        </Page>
-    )
-}
-
-export function CommonAPI (_: PagesProps) {
-    return (
-        <Page>
-            {`# Common API
-                useShadow({ config: { duration: 250 }, ... })
-
-                Property | Default | Description
-                :------- | :------ | :----------
-                size     | 1       | size
-                `}
-            <></>
         </Page>
     )
 }

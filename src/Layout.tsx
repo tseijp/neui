@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import {shadow} from './components'
+import styled from "styled-components"
+import {shadow} from "./components"
+import {animated} from "react-spring"
 
 type Global = "inherit" | "initial" | "unset"
 type Content = "center" | "start" | "end" | "flex-start" | "flex-end"
@@ -7,7 +8,7 @@ type Baseline = "baseline" | "first baseline" | "last baseline"
 type Space  = "space-between" | "space-around" | "space-evenly" | "stretch"
 type Overflow = "safe center" | "unsafe center"
 
-export type Flex = Partial<{
+export type BoxProps = Partial<{
     /* flex */
     flex: "auto" | "initial" | "none" | string | number | Global,
     grow: "auto" | "initial" | "none" | string | number | Global,
@@ -23,7 +24,7 @@ export type Flex = Partial<{
     justify: "normal" | "left" | "right" | Space | Content | Overflow | Global,
     content: "normal" | Space     | Content | Baseline | Overflow | Global,
     items  : "normal" | "stretch" | Content | Baseline | Overflow | Global,
-    self   : "nomal"  | "auto"    | Content | Baseline | Overflow | Global,
+    self   : "normal" | "auto"    | Content | Baseline | Overflow | Global,
 
     /* gap */
     gap: string | Global,
@@ -35,14 +36,16 @@ export type Flex = Partial<{
     left: string | number,
     width: string | number,
     height: string | number,
-    position: string,
+    position: string | number,
+    padding: string | number,
+    margin: string | number,
 
     /* color */
     color: string,
     background: string,
 }>
 
-export const Flex = styled.div<Flex>`
+export const Flex = styled(animated.div)<BoxProps>`
     display: flex;
 
     /* flex */
@@ -73,10 +76,12 @@ export const Flex = styled.div<Flex>`
     width: ${({width="100%"}) => width};
     height: ${({height="100%"}) => height};
     ${({position=""}) => position? `position: ${position};`: ""}
+    ${({padding=""}) => padding? `padding: ${padding};`: ""}
+    ${({margin=""}) => margin? `margin: ${margin};`: ""}
 
     /* color*/
     ${({color=""}) => color? `color: ${color}`: ""}
     ${({background=""}) => background? `background: ${background}`: ""}
 `
 
-export const Box = shadow(Flex)
+export const Box = shadow(Flex, {shape: 4})

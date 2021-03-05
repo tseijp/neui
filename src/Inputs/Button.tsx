@@ -1,8 +1,9 @@
+import {animated} from "react-spring"
 import styled from "styled-components"
 import {shadow} from "../components"
 import {UseShadowProps} from "../hooks"
 
-export type ButtonProps = Partial<UseShadowProps  & {
+export type ButtonProps = Partial<UseShadowProps & {
     href: string,
     color: string,
     disabled: boolean,
@@ -10,27 +11,19 @@ export type ButtonProps = Partial<UseShadowProps  & {
 
 export function Button (props: ButtonProps): null | number | string | JSX.Element
 
-export function Button ({
-    href,
-    color,
-    children,
-    disabled=false,
-}: any) {
+export function Button ({href, children, ...props}: any) {
     return (
-        <ButtonContainer color={color}>
-            <ButtonLink href={href} disabled={disabled}>
-                {children}
-            </ButtonLink>
+        <ButtonContainer {...props}>
+            <a href={href}>{children}</a>
         </ButtonContainer>
     )
 }
 
-export const ButtonContainer = shadow(styled.button<ButtonProps>`
+export const ButtonContainer = shadow(styled(animated.button)<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
+    > a {
+        color: ${({disabled=false}) => disabled? "#222": "000"};
+    }
 `)
-
-export const ButtonLink = styled.a<ButtonProps>`
-    color: ${({disabled}) => disabled? "#222": "000"};
-`

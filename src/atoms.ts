@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-export const colorAtom = atom("#212121")
+export const colorAtom = atom("#e0e0e0")
 
 export type LightAtom = {
     x: number,

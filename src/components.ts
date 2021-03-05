@@ -27,12 +27,42 @@ export function shadow (
     props?: UseShadowProps
 ): (props?: any) => null | JSX.Element
 
-export function shadow (element: any, config: any) {
-    return (props: any) => {
+export function shadow (element: any, config: any={}) {
+    return ({
+        color,
+        blur,
+        radius,
+        distance,
+        border,
+        shape,
+        rotation,
+        intensity,
+        ...props
+    }: any) => {
         const children = React.useCallback((state: CSS) => {
             const style = {...state, ...props.style}
             return createElement(element, {...props, style})
         }, [props])
-        return createElement(Shadow, config, children)
+        const shadowProps = React.useMemo(() => ({
+            color,
+            blur,
+            radius,
+            distance,
+            border,
+            shape,
+            rotation,
+            intensity,
+            ...config
+        }), [
+            color,
+            blur,
+            radius,
+            distance,
+            border,
+            shape,
+            rotation,
+            intensity
+        ])
+        return createElement(Shadow, shadowProps, children)
     }
 }

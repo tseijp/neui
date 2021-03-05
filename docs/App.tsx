@@ -4,16 +4,17 @@ import * as Pages from "./pages"
 import styled from "styled-components"
 import {
     shadow,
+    Flex,
     Box,
     Button,
 } from "../src"
 
-function App() {
+function App () {
   return (
-    <Box dir="column" position="absolute">
-      <Box height="50px">
+    <Box dir="column" position="absolute" border={0}>
+      <Flex height="50px">
         <Button><Link to="/">NEUI</Link></Button>
-      </Box>
+      </Flex>
       <Box grow={1}>
         <MainNav>
           <li>Getting Started</li>
@@ -65,9 +66,9 @@ function App() {
           </Router>
         </Main>
       </Box>
-      <Box grow={1}>
+      <Flex grow={1}>
         footer
-      </Box>
+      </Flex>
     </Box>
   )
 }

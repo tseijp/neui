@@ -1,55 +1,65 @@
-// import {animated} from "react-spring"
+import React from "react"
 import styled from "styled-components"
-import {shadow} from "../components"
 import {UseShadowProps} from "../hooks"
+import {Box} from "../Layout"
 
 export type SliderProps = Partial<UseShadowProps & {
+    ref: React.Ref<any>,
     min: number,
     max: number,
     step: number,
     value: number,
     disabled: boolean,
     vertical: boolean,
+    onChange: (...args: any) => void,
+    label: string,
 }>
 
 export function Slider ({
-    min= 0,
-    max= 1,
-    step= 0.01,
-    value= 0.5,
     disabled= false,
     vertical= false,
+    label= "",
     ...props
 }: SliderProps) {
     return (
-        <SliderContainer>
-            <SliderBar/>
-            <SliderCircle/>
-            <SliderBar/>
-        </SliderContainer>
+        <Box height="auto">
+            <SliderLabel htmlFor={label}>{label}: </SliderLabel>
+            <SliderInput {...props} type="range"/>
+        </Box>
     )
 }
 
-export const SliderContainer = shadow(styled.div`
-    /* Content is centered horizontally */
-    align-items: center;
-    display: flex;
+const SliderLabel = styled.label``
+const SliderInput = styled.input<any>`
+    margin: 10px 0px;
+    height: 0;
+    width: 100%;
+    background-color: transparent;
+    position: relative;
+    &:hover, &:active, &:focus, &:focus-within {
+        &::after {
+            position: absolute;
+            left: 105%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 3px;
+            padding: 10px;
+        }
+        &::before {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            z-index: 222;
+            content: " ";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 103%;
 
-    /* Size */
-    height: 32px;
-`)
-
-export const SliderCircle = shadow(styled.button`
-    /* Size */
-    height: 32px;
-    width: 32px;
-
-    /* Rounded border */
-    border-radius: 9999px;
-`)
-
-export const SliderBar = shadow(styled.div`
-    /* Width based on the current value */
-    height: 2px;
-    width: 50%;
-`)
+            @media only screen and (max-width: 410px) {
+            display: none;
+            }
+        }
+    }
+`;
