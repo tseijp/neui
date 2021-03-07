@@ -49,10 +49,10 @@ export const Flex = styled(animated.div)<BoxProps>`
     display: flex;
 
     /* flex */
-    ${({flex=""}) => flex? `flex: ${flex};`: ""}
     flex-grow: ${({grow=0}) => grow};
     flex-shrink: ${({shrink=1}) => shrink};
     flex-basis: ${({basis="auto"}) => basis};
+    ${({flex=""}) => flex? `flex: ${flex};`: ""}
 
     /* flex-flow */
     flex-direction: ${({dir="row"}) => dir};
@@ -73,15 +73,15 @@ export const Flex = styled(animated.div)<BoxProps>`
     /* position */
     top: ${({top=0}) => top};
     left: ${({left=0}) => left};
-    width: ${({width="100%"}) => width};
-    height: ${({height="100%"}) => height};
+    width: ${({width="auto"}) => width};
+    height: ${({height="auto"}) => height};
+
+    /* style */
     ${({position=""}) => position? `position: ${position};`: ""}
     ${({padding=""}) => padding? `padding: ${padding};`: ""}
     ${({margin=""}) => margin? `margin: ${margin};`: ""}
-
-    /* color*/
-    ${({color=""}) => color? `color: ${color}`: ""}
-    ${({background=""}) => background? `background: ${background}`: ""}
+    ${({color=""}) => color? `color: ${color};`: ""}
+    ${({background=""}) => background? `background: ${background};`: ""}
 `
 
-export const Box = shadow(Flex, {shape: 4})
+export const Box = shadow(Flex, {depth: -50})

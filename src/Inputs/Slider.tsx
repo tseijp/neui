@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import {UseShadowProps} from "../hooks"
-import {Box} from "../Layout"
+import {Flex} from "../Layout"
+import {useShadow} from "../hooks"
 
 export type SliderProps = Partial<UseShadowProps & {
     ref: React.Ref<any>,
@@ -21,11 +22,12 @@ export function Slider ({
     label= "",
     ...props
 }: SliderProps) {
+    const style = useShadow()
     return (
-        <Box height="auto">
-            <SliderLabel htmlFor={label}>{label}: </SliderLabel>
-            <SliderInput {...props} type="range"/>
-        </Box>
+        <Flex height="auto">
+            {label ?? <SliderLabel htmlFor={label}>{label}</SliderLabel>}
+            <SliderInput {...props} style={style} type="range"/>
+        </Flex>
     )
 }
 

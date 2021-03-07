@@ -2,14 +2,6 @@ import React from "react";
 import { PagesProps } from "./types";
 import { Page } from '../components'
 
-export function Container (_: PagesProps) {
-    return (
-        <Page>
-            {`# Container`}
-        </Page>
-    )
-}
-
 export function Box (_: PagesProps) {
     return (
         <Page>

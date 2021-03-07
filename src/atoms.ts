@@ -1,6 +1,10 @@
 import { atom } from "jotai";
 
 export const colorAtom = atom("#e0e0e0")
+export const themeAtom = atom(get => ({
+    color: get(colorAtom)
+}))
+
 
 export type LightAtom = {
     x: number,
@@ -12,7 +16,7 @@ export type LightAtom = {
 export type ShadowAtom = {
     blur: number
     size: number
-    shape: number
+    kappa: number
     radius: number
     distance: number
     intensity: number
