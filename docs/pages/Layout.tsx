@@ -1,11 +1,16 @@
 import React from "react";
 import { PagesProps } from "./types";
-import { Page } from '../components'
+import { Page, Code } from "../utils";
+
+export function Layout ({children}: PagesProps) {
+    return children
+}
 
 export function Box (_: PagesProps) {
     return (
         <Page>
             {`# Box`}
+            <Code/>
         </Page>
     )
 }

@@ -55,7 +55,6 @@ export function shadow (element: any, defaultShadowProps: UseShadowProps={}) {
             lambda,
             kappa,
             children,
-            ...defaultShadowProps,
         }), [
             color,
             border,

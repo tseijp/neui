@@ -1,6 +1,6 @@
 import React from "react";
 import { PagesProps } from "./types";
-import { Page, Code } from '../components'
+import { Page, Code } from "../utils";
 
 export * from "./BasicUsage"
 export * from "./CommonAPI"
@@ -9,9 +9,10 @@ export * from "./Examples"
 export * from "./Inputs"
 export * from "./Layout"
 
-export function Installation (_: PagesProps) {
+export function Installation ({children}: PagesProps) {
     return (
         <Page>
+            {children}
             {`# Installation`}
             <Code>npm install @tsei/neui</Code>
             {`# Quick started

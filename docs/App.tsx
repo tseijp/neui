@@ -1,78 +1,63 @@
 import React from "react";
-import { useAtom } from "jotai";
+import styled from "styled-components"
 import { animated } from "react-spring"
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 import * as Pages from "./pages"
-import styled, { createGlobalStyle } from "styled-components"
-import {
-    themeAtom,
-    shadow,
-    Flex,
-    Box,
-    Button,
-} from "../src"
+import { shadow } from "../src"
+import { Page } from "./utils"
 
-function App () {
-  const [theme] = useAtom(themeAtom)
+function App (_: any) {
   return (
-    <Flex dir="column" width="auto">
-      <GlobalStyle background={theme.color}/>
-      <Box border={50} depth={10} height="50px" margin="0 0 50px 0">
-        <Button><Link to="/">NEUI</Link></Button>
-      </Box>
       <Main border={50} depth={10}>
         <Left border={50} depth={-10}>
-          <li>Getting Started</li>
-          <ul>
-            <Link to="/getting-started/installation">Installation</Link>
-            <Link to="/getting-started/basic-usage">Basic Usage</Link>
-            <Link to="/getting-started/common-api">Common API</Link>
-            <Link to="/getting-started/documents">Documents</Link>
-            <Link to="/getting-started/examples">Examples</Link>
-          </ul>
-          <li>Layout</li>
-          <ul>
-            <Link to="/components/layout/box"      >Box</Link>
-            <Link to="/components/layout/grid"     >Grid</Link>
-            <Link to="/components/layout/hidden"   >Hidden</Link>
-          </ul>
-          <li>Input</li>
-          <ul>
-            <Link to="/components/inputs/button"   >Button</Link>
-            <Link to="/components/inputs/checkbox" >CheckBox</Link>
-            <Link to="/components/inputs/radio"    >Radio</Link>
-            <Link to="/components/inputs/select"   >Select</Link>
-            <Link to="/components/inputs/slider"   >Slider</Link>
-            <Link to="/components/inputs/switch"   >Switch</Link>
-            <Link to="/components/inputs/fields"   >Fields</Link>
-            <Link to="/components/inputs/list"     >List</Link>
-          </ul>
+          <Page>
+          {`- Getting Started
+              - [Installation](/getting-started/installation)
+              - [Basic Usage](/getting-started/basic-usage)
+              - [Common API](/getting-started/common-api)
+              - [Documents](/getting-started/documents)
+              - [Examples](/getting-started/examples)
+            - Layout
+              - [Box](/components/layout/box)
+              - [Grid](/components/layout/grid)
+              - [Hidden](/components/layout/hidden)
+            - Input
+              - [Button](/components/inputs/button)
+              - [CheckBox](/components/inputs/checkbox)
+              - [Radio](/components/inputs/radio)
+              - [Select](/components/inputs/select)
+              - [Slider](/components/inputs/slider)
+              - [Switch](/components/inputs/switch)
+              - [Fields](/components/inputs/fields)
+              - [List](/components/inputs/list)
+        `}</Page>
         </Left>
         <Right border={50} depth={-10}>
           <Router>
-            <Pages.Installation path="/getting-started/installation"/>
-            <Pages.BasicUsage   path="/getting-started/basic-usage"/>
-            <Pages.CommonAPI    path="/getting-started/common-api"/>
-            <Pages.Documents    path="/getting-started/documents"/>
-            <Pages.Examples     path="/getting-started/examples"/>
-            <Pages.Box          path="/components/layout/box"/>
-            <Pages.Grid         path="/components/layout/grid"/>
-            <Pages.Hidden       path="/components/layout/hidden"/>
-            <Pages.Button       path="/components/inputs/button"/>
-            <Pages.Checkbox     path="/components/inputs/checkbox"/>
-            <Pages.Radio        path="/components/inputs/radio"/>
-            <Pages.Select       path="/components/inputs/select"/>
-            <Pages.Slider       path="/components/inputs/slider"/>
-            <Pages.Switch       path="/components/inputs/switch"/>
-            <Pages.Fields       path="/components/inputs/fields"/>
-            <Pages.List         path="/components/inputs/list"/>
+            <Pages.Installation path="/getting-started">
+              <Pages.BasicUsage path="basic-usage"/>
+              <Pages.CommonAPI path="common-api"/>
+              <Pages.Documents path="documents"/>
+              <Pages.Examples path="examples"/>
+            </Pages.Installation>
+            <Pages.Layout path="/components/layout">
+              <Pages.Box path="box"/>
+              <Pages.Grid path="grid"/>
+              <Pages.Hidden path="hidden"/>
+              <Pages.Checkbox path="checkbox"/>
+            </Pages.Layout>
+            <Pages.Inputs path="/components/inputs">
+              <Pages.Button path="button"/>
+              <Pages.Radio path="radio"/>
+              <Pages.Select path="select"/>
+              <Pages.Slider path="slider"/>
+              <Pages.Switch path="switch"/>
+              <Pages.Fields path="fields"/>
+              <Pages.List path="list"/>
+            </Pages.Inputs>
           </Router>
         </Right>
       </Main>
-      <Box border={50} depth={10} height="100px" margin="50px 0 0 0" grow={1}>
-        footer
-      </Box>
-    </Flex>
   )
 }
 
@@ -109,26 +94,5 @@ export const Right = shadow(styled(animated.div)`
         width: 100vw;
     }
 `);
-
-const GlobalStyle = createGlobalStyle<any>`
-    html,
-    body,
-    #root {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: auto;
-    }
-
-    body {
-        position: fixed;
-        overflow: hidden;
-        overscroll-behavior-y: none;
-        font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-        color: black;
-        background: ${({background="#fff"}) => background};
-    }
-`
 
 export default App;

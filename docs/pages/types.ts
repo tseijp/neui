@@ -1,3 +1,4 @@
 export type PagesProps = {
-    path: string
+    path: string,
+    children: null | JSX.Element
 }

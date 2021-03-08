@@ -1,8 +1,10 @@
-# neui
+# NE-UI
+
+neumorphic UI using styled and animated
 
 # Installation
 
-- npm install @tsei/neui
+- npm install @tsei/neui styled-components react-spring
 
 # Quick started
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PagesProps } from "./types";
-import { Page, Code } from '../components'
+import { Page, Code } from "../utils";
 import { useAtom } from "jotai"
 import {
     colorAtom,

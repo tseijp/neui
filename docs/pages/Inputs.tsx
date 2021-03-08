@@ -1,8 +1,12 @@
 import React from "react";
 import { PagesProps } from "./types";
-import { Page, Code } from "../components";
+import { Page, Code } from "../utils";
 import { Box } from "../../src"
-import * as Inputs from "../../src/Inputs";
+import * as I from "../../src/Inputs";
+
+export function Inputs ({children}: PagesProps) {
+    return children
+}
 
 export function Button (_: PagesProps) {
     return (
@@ -10,26 +14,26 @@ export function Button (_: PagesProps) {
             {`# Button
             Buttons communicate actions that users can take.`}
             <Box height="50px">
-                <Inputs.Button>Default</Inputs.Button>
-                <Inputs.Button color="primary">
+                <I.Button>Default</I.Button>
+                <I.Button color="primary">
                     Primary
-                </Inputs.Button>
-                <Inputs.Button color="secondary">
+                </I.Button>
+                <I.Button color="secondary">
                     Secondary
-                </Inputs.Button>
-                <Inputs.Button disabled>
+                </I.Button>
+                <I.Button disabled>
                     Disabled
-                </Inputs.Button>
-                <Inputs.Button color="primary" href="#contained-buttons">
+                </I.Button>
+                <I.Button color="primary">
                     Link
-                </Inputs.Button>
+                </I.Button>
             </Box>
             {`# Buttons with icons and label`}
             <Box height="50px">
-                <Inputs.IconButton aria-label="delete"/>
-                <Inputs.IconButton aria-label="delete" disabled color="primary"/>
-                <Inputs.IconButton color="secondary" aria-label="add an alarm"/>
-                <Inputs.IconButton color="primary" aria-label="add to shopping cart"/>
+                <I.IconButton aria-label="delete"/>
+                <I.IconButton aria-label="delete" disabled color="primary"/>
+                <I.IconButton color="secondary" aria-label="add an alarm"/>
+                <I.IconButton color="primary" aria-label="add to shopping cart"/>
             </Box>
         </Page>
     )
@@ -74,13 +78,13 @@ export function Slider (_: PagesProps) {
             vertical | boolean | false
 
             ## Continuous sliders`}
-            <Inputs.Slider />
+            <I.Slider />
             <Code>{`<Input />`}</Code>
             {`## Discrete sliders`}
-            <Inputs.Slider />
+            <I.Slider />
             <Code>{`<Input />`}</Code>
             {`## Restricted values`}
-            <Inputs.Slider />
+            <I.Slider />
             <Code>{`<Input />`}</Code>
             {`## Vertical sliders`}
         </Page>
