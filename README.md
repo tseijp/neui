@@ -41,4 +41,4 @@ ReactDOM.render(<App/>, document.getElementById('root')
 
 # License
 
-This project is licensed under the terms of the [MIT license]().
+This project is licensed under the terms of the [MIT license][https://github.com/tseijp/neui].
