@@ -1,11 +1,21 @@
 {
+  "bugs": "https://github.com/tseijp/neui/issues/",
+  "homepage": "https://tseijp.github.io/neui/",
+  "repository": "https://github.com/tseijp/neui/",
+  "description": "♑neumophismic ui♑",
+  "maintainers": [
+      "tseijp (https://github.com/tseijp)"
+  ],
+  "keywords": [
+      "react",
+      "animation",
+      "typescript"
+  ],
   "name": "@neui/root",
   "version": "1.0.0",
-  "description": "neumorphic UI using styled and animated",
-  "author": "tseijp",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {
+  "author": "tsei",
+  "devDependencies": {
     "@changesets/cli": "^2.21.1"
   }
 }

@@ -1,31 +1,44 @@
 {
-    "name": "@tsei/neui",
-    "homepage": "/",
-    "version": "0.1.1",
-    "module": "index.js",
-    "types": "index.d.ts",
-    "main": "index.cjs.js",
-    "author": "tsei",
-    "license": "MIT",
-    "private": false,
-    "sideEffects": false,
+    "bugs": "https://github.com/tseijp/neui/issues/",
+    "homepage": "https://tseijp.github.io/neui/",
+    "repository": "https://github.com/tseijp/neui/",
     "description": "♑neumophismic ui♑",
-    "repository": "https://github.com/tseijp/neui",
-    "bugs": "https://github.com/tseijp/neui/issues",
+    "maintainers": [
+        "tseijp (https://github.com/tseijp)"
+    ],
     "keywords": [
         "react",
         "animation",
         "typescript"
     ],
-    "scripts": {
-        "jest": "jest -c config-jest.js --watch --coverage --runInBand",
-        "rolllup": "cross-env NODE_ENV=production BABEL_ENV=production rollup -c config-rollup.js"
+    "name": "@tsei/neui",
+    "author": "tsei",
+    "license": "MIT",
+    "version": "0.1.1",
+    "module": "index.js",
+    "types": "index.d.ts",
+    "main": "index.cjs.js",
+    "files": [
+        "src",
+        "index.js",
+        "index.d.ts",
+        "index.cjs.js"
+    ],
+    "private": false,
+    "sideEffect": false,
+    "publishConfig": {
+        "access": "public"
     },
     "peerDependencies": {
         "react": ">=16.8",
         "react-dom": ">=16.8",
         "react-spring": ">=9.0",
         "styled-components": ">=5.0"
+    },
+    "peerDependenciesMeta": {
+        "react": {
+            "optional": true
+        }
     },
     "dependencies": {
         "jotai": "^0.15.0"
@@ -61,23 +74,5 @@
         "ts-jest": "^24.3.0",
         "typescript": "^4.2.2",
         "web-vitals": "^1.1.0"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
     }
 }
