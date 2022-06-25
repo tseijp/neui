@@ -1,19 +1,22 @@
-# NE-UI
+# ♑@tsei/neui
 
 neumorphic UI using styled and animated
 
-# Installation
+## Installation
 
 - npm install @tsei/neui styled-components react-spring
 
-# Quick started
+## Quick started
 
-- git clone https://github.com/tseijp/neui
-- cd neui
-- npm install
-- npm start
-- open browser and visit [localhost:3000](localhost:3000)
-- ~Now you can go to [our demo](https://tsei.jp/neui), and try its usage.~
+```sh
+git clone https://github.com/tseijp/neui
+cd neui
+npm i
+npm start
+```
+
+open browser and visit [localhost:3000](localhost:3000)
+~Now you can go to [our demo](https://tsei.jp/neui), and try its usage.~
 
 ## Usage
 
@@ -31,14 +34,14 @@ ReactDOM.render(<App/>, document.getElementById('root')
 
 ~Now you can see in [this live and interactive demo](https://codesandbox.io/).~
 
-# Examples
+## Examples
 
 ~Now you can see in [our demo page](https://tsei.jp/neui/examples).~
 
-# Documentation
+## Documentation
 
 ~Check out our [documentation website](https://tsei.jp/neui/docs).~
 
-# License
+## License
 
 This project is licensed under the terms of the [MIT license][https://github.com/tseijp/neui].
